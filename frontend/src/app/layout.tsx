@@ -15,7 +15,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Hazzard",
+  title: "Hazzard - Leading Streetwear Brand for the Modern Lifestyle",
   description:
     "Premium contemporary clothing and urban fashion for the modern lifestyle.",
 };
