@@ -3,6 +3,7 @@
 import { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
+import Logo from "@/assets/images/Logo.png";
 import {
   FiShoppingCart,
   FiUser,
@@ -10,9 +11,9 @@ import {
   FiChevronDown,
   FiMenu,
   FiX,
-  FiUserPlus ,
-  FiLogIn ,
-  FiLogOut ,
+  FiUserPlus,
+  FiLogIn,
+  FiLogOut,
   FiTrash2,
   FiPlus,
   FiMinus,
@@ -47,7 +48,8 @@ export default function Navbar() {
       name: "Apple iPhone 15",
       price: 599,
       quantity: 1,
-      image: "https://images.unsplash.com/photo-1695048133142-1a20484d2569?w=200&q=80",
+      image:
+        "https://images.unsplash.com/photo-1695048133142-1a20484d2569?w=200&q=80",
       variant: "Gold Edition, 256GB",
     },
     {
@@ -55,7 +57,8 @@ export default function Navbar() {
       name: "Apple iPad Air",
       price: 499,
       quantity: 9,
-      image: "https://images.unsplash.com/photo-1544244015-0df4b3ffc6b0?w=200&q=80",
+      image:
+        "https://images.unsplash.com/photo-1544244015-0df4b3ffc6b0?w=200&q=80",
       variant: "Silver, 64GB",
     },
     {
@@ -63,7 +66,8 @@ export default function Navbar() {
       name: "Apple Watch SE",
       price: 199,
       quantity: 1,
-      image: "https://images.unsplash.com/photo-1579586337278-3befd40fd17a?w=200&q=80",
+      image:
+        "https://images.unsplash.com/photo-1579586337278-3befd40fd17a?w=200&q=80",
       variant: "Purple, GPS",
     },
     {
@@ -71,7 +75,8 @@ export default function Navbar() {
       name: 'Apple iMac 20"',
       price: 2999,
       quantity: 1,
-      image: "https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=200&q=80",
+      image:
+        "https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=200&q=80",
       variant: "512GB, 32GB RAM",
     },
   ]);
@@ -85,14 +90,14 @@ export default function Navbar() {
       cartItems.map((item) =>
         item.id === id
           ? { ...item, quantity: Math.max(1, item.quantity + change) }
-          : item
-      )
+          : item,
+      ),
     );
   };
 
   const cartTotal = cartItems.reduce(
     (sum, item) => sum + item.price * item.quantity,
-    0
+    0,
   );
   const cartItemCount = cartItems.reduce((sum, item) => sum + item.quantity, 0);
 
@@ -133,24 +138,14 @@ export default function Navbar() {
                 href="/"
                 className="flex flex-shrink-0 items-center gap-2 lg:absolute lg:left-1/2 lg:-translate-x-1/2"
               >
-                <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-primary text-primary-foreground">
-                  <svg
-                    className="h-5 w-5"
-                    viewBox="0 0 24 24"
-                    fill="currentColor"
-                  >
-                    <circle cx="12" cy="12" r="10" />
-                    <path
-                      d="M12 6v12M6 12h12"
-                      stroke="white"
-                      strokeWidth="2"
-                      strokeLinecap="round"
-                    />
-                  </svg>
+                <div className="relative h-10 w-32">
+                  <Image
+                    src={Logo}
+                    alt="Hazzard Logo"
+                    fill
+                    className="object-contain"
+                  />
                 </div>
-                <span className="text-xl font-bold tracking-tight text-foreground">
-                  Hazzard
-                </span>
               </Link>
 
               {/* Right Actions */}
@@ -186,8 +181,8 @@ export default function Navbar() {
                       </span>
                     </Button>
                   </DropdownMenuTrigger>
-                  <DropdownMenuContent 
-                    align="end" 
+                  <DropdownMenuContent
+                    align="end"
                     className="w-[420px] max-w-[calc(100vw-1rem)] p-0 mr-2"
                     sideOffset={8}
                   >
@@ -195,9 +190,12 @@ export default function Navbar() {
                       {/* Cart Header */}
                       <div className="px-4 sm:px-6 py-3 sm:py-4 border-b border-border">
                         <div className="flex items-center justify-between">
-                          <h3 className="font-semibold text-base sm:text-lg">Your shopping cart</h3>
+                          <h3 className="font-semibold text-base sm:text-lg">
+                            Your shopping cart
+                          </h3>
                           <span className="text-xs sm:text-sm text-muted-foreground">
-                            {cartItemCount} {cartItemCount === 1 ? "item" : "items"}
+                            {cartItemCount}{" "}
+                            {cartItemCount === 1 ? "item" : "items"}
                           </span>
                         </div>
                       </div>
@@ -208,8 +206,12 @@ export default function Navbar() {
                           <div className="w-12 h-12 sm:w-16 sm:h-16 mx-auto mb-3 sm:mb-4 rounded-full bg-muted flex items-center justify-center">
                             <FiShoppingCart className="h-6 w-6 sm:h-8 sm:w-8 text-muted-foreground" />
                           </div>
-                          <p className="text-sm text-muted-foreground mb-2">Your cart is empty</p>
-                          <p className="text-xs text-muted-foreground">Add items to get started</p>
+                          <p className="text-sm text-muted-foreground mb-2">
+                            Your cart is empty
+                          </p>
+                          <p className="text-xs text-muted-foreground">
+                            Add items to get started
+                          </p>
                         </div>
                       ) : (
                         <>
@@ -240,7 +242,7 @@ export default function Navbar() {
                                         {item.variant}
                                       </p>
                                     )}
-                                    
+
                                     {/* Quantity Controls */}
                                     <div className="flex items-center gap-2">
                                       <div className="flex items-center gap-1 bg-muted rounded-lg p-0.5">
@@ -285,7 +287,10 @@ export default function Navbar() {
                                       <FiTrash2 className="h-3.5 w-3.5" />
                                     </button>
                                     <span className="font-bold text-sm sm:text-base">
-                                      ${(item.price * item.quantity).toLocaleString()}
+                                      $
+                                      {(
+                                        item.price * item.quantity
+                                      ).toLocaleString()}
                                     </span>
                                   </div>
                                 </div>
@@ -296,12 +301,17 @@ export default function Navbar() {
                           {/* Cart Footer */}
                           <div className="px-4 sm:px-6 py-3 sm:py-4 bg-muted/20">
                             <div className="flex items-center justify-between mb-3 sm:mb-4">
-                              <span className="font-semibold text-base">Total</span>
+                              <span className="font-semibold text-base">
+                                Total
+                              </span>
                               <span className="text-xl sm:text-2xl font-bold">
                                 ${cartTotal.toLocaleString()}
                               </span>
                             </div>
-                            <Link href="/cart" onClick={() => setIsCartOpen(false)}>
+                            <Link
+                              href="/cart"
+                              onClick={() => setIsCartOpen(false)}
+                            >
                               <Button className="w-full h-11 sm:h-12 rounded-xl text-sm sm:text-base font-semibold">
                                 See your cart
                               </Button>
@@ -331,12 +341,12 @@ export default function Navbar() {
                     {" "}
                     <DropdownMenuItem asChild>
                       <Link href="/login" className="cursor-pointer">
-                        <FiLogIn className = 'text-black'></FiLogIn> Login
+                        <FiLogIn className="text-black"></FiLogIn> Login
                       </Link>
                     </DropdownMenuItem>
                     <DropdownMenuItem asChild>
                       <Link href="/signup" className="cursor-pointer">
-                        <FiUserPlus className = 'text-black'></FiUserPlus> Signup
+                        <FiUserPlus className="text-black"></FiUserPlus> Signup
                       </Link>
                     </DropdownMenuItem>
                   </DropdownMenuContent>
