@@ -237,7 +237,7 @@ export default function TermsPage() {
               {additionalTerms.map((term, index) => (
                 <div
                   key={index}
-                  className="rounded-xl  bg-background p-6"
+                  className="rounded-xl bg-background p-6"
                 >
                   <h3 className="text-xl font-semibold text-foreground mb-3">
                     {term.title}
@@ -256,7 +256,7 @@ export default function TermsPage() {
       <section className="w-full py-12">
         <div className="container mx-auto px-4">
           <div className="mx-auto max-w-4xl">
-            <div className="rounded-xl  bg-primary/5 p-6 md:p-8">
+            <div className="rounded-xl bg-primary/5 p-6 md:p-8">
               <div className="flex items-start gap-4">
                 <div className="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-full bg-primary/20">
                   <FiAlertCircle className="h-5 w-5 text-primary" />

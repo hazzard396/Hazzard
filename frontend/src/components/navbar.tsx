@@ -17,6 +17,7 @@ import {
   FiTrash2,
   FiPlus,
   FiMinus,
+  FiSettings,
 } from "react-icons/fi";
 import { Button } from "@/components/ui/button";
 import {
@@ -339,6 +340,13 @@ export default function Navbar() {
                   </DropdownMenuTrigger>
                   <DropdownMenuContent align="end" className="w-full">
                     {" "}
+                    <DropdownMenuItem asChild>
+                      <Link href="/account" className="cursor-pointer">
+                        <FiSettings className="text-black"></FiSettings> My
+                        Account
+                      </Link>
+                    </DropdownMenuItem>
+                    <DropdownMenuSeparator />
                     <DropdownMenuItem asChild>
                       <Link href="/login" className="cursor-pointer">
                         <FiLogIn className="text-black"></FiLogIn> Login
